@@ -1,0 +1,262 @@
+/******************** Corps de la page ********************/
+body {
+    background-color: rgb(255, 254, 246);
+}
+
+
+/********************  Header ********************/
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    background-image: url(../images/footer.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.6em;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.shopping,a,svg {
+    text-decoration: none;
+    color: black;
+    width: 25px;
+    height: auto;
+}
+
+.grandmenu, .menumoyen {
+    display: none;
+}
+
+aside{
+    display: flex;
+    align-items: baseline;
+}
+
+@media screen and (min-width: 768px){
+    h1 {
+        font-size: 3.5em;
+    }
+    .menumoyen {
+        display: initial;
+    }
+    .petitmenu {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 5em;
+    }
+    .navbar-toggler {
+        display: none;
+    }
+    svg {
+        width: 40px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .shopping {
+        width: 106px;
+        text-align: center;
+    }
+    .grandmenu {
+        display: initial;
+    }
+    aside {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    h1 {
+        font-size: 7em;
+    }
+}
+
+
+
+
+
+
+/********************  Menu de navigation ********************/
+.menu {
+    margin: 0 0 5% 0;
+    text-align: center;
+    vertical-align: text-bottom;
+    padding: 1% 0 1% 0;
+    background-color: rgba(235, 245, 178, 0.301);
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .menu {
+        display: none;
+    }
+}
+
+
+/********************  Divers ********************/
+h3 {
+    margin: 7% auto 3% !important;
+    background-image: url(../images/fond_clair.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: fit-content;
+    border-radius: 5px;
+    padding: 1% 2% 2% 2%;
+    color: black;
+    font-weight: bold;
+}
+
+.section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.categorie1,.categorie2,.categorie3,.categorie4 {
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 2%;
+    position: absolute;
+    top: 0px;
+}
+
+.categorie1 {
+    background-color: rgb(211, 180, 2);
+}
+.categorie2 {
+    background-color: rgb(10, 85, 0);
+}
+
+.categorie3 {
+    background-color: rgb(85, 0, 0);
+}
+
+.categorie4 {
+    background-color: darkmagenta;
+}
+
+.container
+{
+    margin-top: 3%;
+}
+
+.text {
+    padding: 3%;
+}
+
+@media screen and (min-width: 768px) {
+    h3 {
+        font-size: 2em;
+        border-radius: 7px;
+    }
+    .categorie1,.categorie2,.categorie3,.categorie4 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    h3 {
+        font-size: 3em;
+        border-radius: 10px;
+    }
+    .categorie1,.categorie2,.categorie3,.categorie4 {
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .categorie1,.categorie2,.categorie3,.categorie4 {
+        font-size: 1.5em;
+    }
+}
+
+
+
+/* Encart modalite */
+.encart {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+.modalite {
+    padding: 3% 0 3% 3%;
+    font-size: small;
+}
+
+.picto {
+    margin-right: 5%;
+    width: 75px;
+    height: auto;
+}
+
+@media screen and (min-width:768px) {
+    .modalite {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+        text-align: center;
+    }
+    .picto {
+        width: 100px;
+        margin-bottom: 5%;
+    }
+    .encart {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .modalite {
+        font-size: 1.5em;
+    }
+}
+
+
+
+
+/********************  Footer ********************/
+footer {
+    font-size: 0.5em;
+    text-align: center;
+    padding: 4%;
+    color: white;
+    font-weight: bold;
+    background-image: url(../images/footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    text-shadow: 0 0 0.5em black !important;
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    footer {
+        font-size: 1em;
+    }
+}

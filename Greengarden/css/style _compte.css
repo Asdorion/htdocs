@@ -1,0 +1,130 @@
+/********** Corps de la page **********/
+.corps {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width:768px) {
+    .corps {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+h3 {
+    font-size: 2em;
+}
+
+@media screen and (min-width: 768px) {
+    h3 {
+        font-size: 2.5em;
+        border-radius: 7px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    h3 {
+        font-size: 3em;
+        border-radius: 10px;
+    }
+}
+
+
+
+/********** Partie connection **********/
+.connexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@media screen and (min-width:768px) {
+    .connexion {
+        width: 40%;
+    }
+}
+
+
+
+/********** Partie inscription **********/
+.inscription {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cp {
+    width: 40%;
+}
+
+@media screen and (min-width: 768px) {
+    .inscription {
+        width: 40%;
+    }
+}
+
+
+/********** Gestion des champs et boutons **********/
+input[type=button] {
+    margin-top: 15%;
+    margin-bottom: 50px;
+    background-color:rgb(248, 211, 142);
+}
+
+label {
+    margin-top: 5%; 
+}
+
+.masque {
+    display: none;
+}
+
+#alertmdp, #alerttel, #alertmail, #alertcons {
+    padding: 1%;
+    margin: 1%;
+}
+
+input + span {
+    text-align: center;
+  }
+  
+input:invalid+span:after {
+    position: absolute; content: '✗';
+    padding-left: 10px;
+    color: red;
+    vertical-align: bottom;    
+  }
+  
+input:valid+span:after {
+    position: absolute;
+    content: '✓';
+    padding-left: 10px;
+    color: green;
+  }
+
+
+/********** Instructions **********/
+.croix{
+    color: red;
+}
+
+.instructions {
+    margin-bottom: 10%;
+}
+
+small {
+    text-align: center;
+    width: 60%;
+    font-size: 0.7em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
