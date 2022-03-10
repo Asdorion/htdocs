@@ -2,7 +2,7 @@
 
 // déclaration des variables
 let formins = document.querySelector('#formInscription');
-
+let formconnexion = document.querySelector('#formconnexion');
 
 /** Ecoute du champs Téléphone et vérification du nombre de caractères saisis.
  * @param  {String} telephone
@@ -83,3 +83,29 @@ formins.mdpconf.addEventListener('change', function () {
     };
 });
 
+
+// Ecoute du bouton €noyer et vérification de l'absence de champs vide
+formins.envoyer.addEventListener('click', function () {
+    let civilites = formins.civilites.value;
+    let nom = formins.nom.value;
+    let prenom = formins.prenom.value;
+    let adresse = formins.adresse.value;
+    let cp = formins.cp.value;
+    let ville = formins.ville.value;
+    let telephone = formins.telephone.value;
+    let mail = formins.mail.value;
+    let mdp = formins.mdp.value;
+    let mdpconf = formins.mdpconf.value;
+    if ((civilites != 'on') || (nom == '') || (prenom == '') || (adresse == '') || (cp =='') || (ville == '') || (telephone == '') || (mail == '') || (mdp == '') || (mdpconf == '')) {
+        alert('Le formulaire est incomplet');
+    };
+});
+
+// Ecoute du bouton Connexion et vérification de l'absence de champs vide
+formconnexion.connexion.addEventListener('click', function () {
+    let login = formconnexion.login.value;
+    let comdp = formconnexion.comdp.value;
+    if ( (login == '') || (comdp == '')) {
+        alert('Le formulaire de connexion est incomplet');
+    };
+});
