@@ -1,5 +1,5 @@
 CREATE TABLE Commercial(
-   id_commercial INT,
+   id_commercial INT auto_increment,
    nomCommercial VARCHAR(50) NOT NULL,
    prenomCommercial VARCHAR(50) NOT NULL,
    PRIMARY KEY(id_commercial)
@@ -88,7 +88,7 @@ CREATE TABLE Facture(
 );
 
 CREATE TABLE Livraison(
-   id_livraison INT,
+   id_livraison INT auto_increment,
    numeroLivraison INT NOT NULL,
    dateLivraison DATE NOT NULL,
    id_commande INT NOT NULL,
