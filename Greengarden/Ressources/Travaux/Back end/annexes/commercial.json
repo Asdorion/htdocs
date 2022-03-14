@@ -1,0 +1,13 @@
+[
+{"type":"header","version":"5.1.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"greengarden"},
+{"type":"table","name":"commercial","database":"greengarden","data":
+[
+{"id_commercial":"1","nomCommercial":"de Araujo","prenomCommercial":"Kennan"},
+{"id_commercial":"2","nomCommercial":"Aremu","prenomCommercial":"Iona"},
+{"id_commercial":"3","nomCommercial":"Igbinoghene","prenomCommercial":"Sasha"},
+{"id_commercial":"4","nomCommercial":"Krämer","prenomCommercial":"Magee"},
+{"id_commercial":"5","nomCommercial":"Richter","prenomCommercial":"Whilemina"}
+]
+}
+]

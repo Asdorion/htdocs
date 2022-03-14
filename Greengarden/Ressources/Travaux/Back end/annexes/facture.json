@@ -1,0 +1,21 @@
+[
+{"type":"header","version":"5.1.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"greengarden"},
+{"type":"table","name":"facture","database":"greengarden","data":
+[
+{"id_facture":"3","numeroFacture":"3072","dateFacture":"2020-05-04","penalite":"2","id_commande":"1"},
+{"id_facture":"4","numeroFacture":"3073","dateFacture":"2021-12-03","penalite":"1","id_commande":"2"},
+{"id_facture":"10","numeroFacture":"3079","dateFacture":"2020-03-11","penalite":"5","id_commande":"3"},
+{"id_facture":"7","numeroFacture":"3076","dateFacture":"2021-02-09","penalite":"4","id_commande":"4"},
+{"id_facture":"8","numeroFacture":"3077","dateFacture":"2020-10-30","penalite":"2","id_commande":"5"},
+{"id_facture":"11","numeroFacture":"3080","dateFacture":"2020-10-19","penalite":"5","id_commande":"8"},
+{"id_facture":"2","numeroFacture":"3071","dateFacture":"2020-12-28","penalite":"2","id_commande":"11"},
+{"id_facture":"6","numeroFacture":"3075","dateFacture":"2021-05-29","penalite":"3","id_commande":"14"},
+{"id_facture":"9","numeroFacture":"3078","dateFacture":"2021-09-15","penalite":"2","id_commande":"16"},
+{"id_facture":"5","numeroFacture":"3074","dateFacture":"2021-01-11","penalite":"0","id_commande":"17"},
+{"id_facture":"1","numeroFacture":"3070","dateFacture":"2021-05-02","penalite":"2","id_commande":"19"},
+{"id_facture":"13","numeroFacture":"3082","dateFacture":"2021-08-31","penalite":"1","id_commande":"20"},
+{"id_facture":"12","numeroFacture":"3081","dateFacture":"2020-09-30","penalite":"1","id_commande":"21"}
+]
+}
+]

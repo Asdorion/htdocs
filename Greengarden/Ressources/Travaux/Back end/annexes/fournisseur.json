@@ -1,0 +1,15 @@
+[
+{"type":"header","version":"5.1.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"greengarden"},
+{"type":"table","name":"fournisseur","database":"greengarden","data":
+[
+{"id_fournisseur":"1","nomFournisseur":"Amet Foundation","adresseFournisseur":"168-5049 In Street","cpFournisseur":"71447","villeFournisseur":"Saintes"},
+{"id_fournisseur":"2","nomFournisseur":"Cursus Vestibulum Mauris LLP","adresseFournisseur":"Ap #925-6430 In St.","cpFournisseur":"64470","villeFournisseur":"Creil"},
+{"id_fournisseur":"3","nomFournisseur":"Dui Augue Limited","adresseFournisseur":"Ap #948-5948 Imperdiet, St.","cpFournisseur":"42281","villeFournisseur":"Bastia"},
+{"id_fournisseur":"4","nomFournisseur":"Nunc Quisque Company","adresseFournisseur":"1556 Sodales Rd.","cpFournisseur":"30736","villeFournisseur":"Cannes"},
+{"id_fournisseur":"5","nomFournisseur":"Phasellus Nulla LLC","adresseFournisseur":"1490 Elit, Street","cpFournisseur":"68553","villeFournisseur":"Châlons-en-Champagne"},
+{"id_fournisseur":"6","nomFournisseur":"Ipsum Cursus Inc.","adresseFournisseur":"430-6548 Ultrices Ave","cpFournisseur":"15438","villeFournisseur":"Vertou"},
+{"id_fournisseur":"7","nomFournisseur":"Ac Facilisis Associates","adresseFournisseur":"Ap #215-3549 Lobortis Street","cpFournisseur":"91703","villeFournisseur":"Antibes"}
+]
+}
+]

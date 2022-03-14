@@ -1,0 +1,109 @@
+CREATE TABLE Commercial(
+   id_commercial INT auto_increment,
+   nomCommercial VARCHAR(50) NOT NULL,
+   prenomCommercial VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id_commercial)
+);
+
+CREATE TABLE Fournisseur(
+   id_fournisseur INT auto_increment,
+   nomFournisseur VARCHAR(50) NOT NULL,
+   adresseFournisseur VARCHAR(100) NOT NULL,
+   cpFournisseur INT NOT NULL,
+   villeFournisseur VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id_fournisseur)
+);
+
+CREATE TABLE Produit(
+   id_produit INT auto_increment,
+   refProduit INT NOT NULL,
+   commandeFournisseur INT NOT NULL,
+   dateCommandeFournisseur DATE NOT NULL,
+   prixAchat DECIMAL(5,2) NOT NULL,
+   quantite_cde_four INT NOT NULL,
+   nomProduit VARCHAR(50) NOT NULL,
+   categorieProduit VARCHAR(20) NOT NULL,
+   souscategorieProduit VARCHAR(20) NOT NULL,
+   descriptionProduit VARCHAR(1000) NOT NULL,
+   photo VARCHAR(50) NOT NULL,
+   stock INT,
+   id_fournisseur INT NOT NULL,
+   PRIMARY KEY(id_produit),
+   UNIQUE(refProduit),
+   UNIQUE(commandeFournisseur),
+   FOREIGN KEY(id_fournisseur) REFERENCES Fournisseur(id_fournisseur)
+);
+
+CREATE TABLE Client(
+   id_client INT auto_increment,
+   refClient INT NOT NULL,
+   categorieClient VARCHAR(20) NOT NULL,
+   civilite VARCHAR(3) NOT NULL,
+   nomClient VARCHAR(50) NOT NULL,
+   prenomClient VARCHAR(50) NOT NULL,
+   mail VARCHAR(50) NOT NULL,
+   tel VARCHAR(20) NOT NULL,
+   adresseLivraison VARCHAR(100) NOT NULL,
+   cpLivraison INT NOT NULL,
+   villeLivraison VARCHAR(50) NOT NULL,
+   adresseFacturation VARCHAR(100) NOT NULL,
+   cpFacturation INT NOT NULL,
+   villeFacturation VARCHAR(50) NOT NULL,
+   modePaiement VARCHAR(1) NOT NULL,
+   coefficient DECIMAL(2,2) NOT NULL,
+   id_commercial INT NOT NULL,
+   PRIMARY KEY(id_client),
+   UNIQUE(refClient),
+   FOREIGN KEY(id_commercial) REFERENCES Commercial(id_commercial)
+);
+
+CREATE TABLE Commande(
+   id_commande INT auto_increment,
+   numeroCommande INT NOT NULL,
+   total_ht_Produit DECIMAL(5,2),
+   tote_ttc_Produit DECIMAL(5,2),
+   total_ht_Cde DECIMAL(5,2),
+   total_ttc_Cde DECIMAL(5,2),
+   etat VARCHAR(20) NOT NULL,
+   prixVente DECIMAL(5,2),
+   tva DECIMAL(5,2) NOT NULL,
+   reduction INT,
+   id_client INT NOT NULL,
+   id_commercial INT NOT NULL,
+   PRIMARY KEY(id_commande),
+   UNIQUE(numeroCommande),
+   FOREIGN KEY(id_client) REFERENCES Client(id_client),
+   FOREIGN KEY(id_commercial) REFERENCES Commercial(id_commercial)
+);
+
+CREATE TABLE Facture(
+   id_facture INT auto_increment,
+   numeroFacture INT NOT NULL,
+   dateFacture DATE NOT NULL,
+   penalite INT,
+   id_commande INT NOT NULL,
+   PRIMARY KEY(id_facture),
+   UNIQUE(id_commande),
+   UNIQUE(numeroFacture),
+   FOREIGN KEY(id_commande) REFERENCES Commande(id_commande)
+);
+
+CREATE TABLE Livraison(
+   id_livraison INT auto_increment,
+   numeroLivraison INT NOT NULL,
+   dateLivraison DATE NOT NULL,
+   id_commande INT NOT NULL,
+   PRIMARY KEY(id_livraison),
+   UNIQUE(numeroLivraison),
+   FOREIGN KEY(id_commande) REFERENCES Commande(id_commande)
+);
+
+CREATE TABLE Ligne_commande(
+   id_commande INT,
+   id_produit INT,
+   dateCommande DATE,
+   quantite INT NOT NULL,
+   PRIMARY KEY(id_commande, id_produit),
+   FOREIGN KEY(id_commande) REFERENCES Commande(id_commande),
+   FOREIGN KEY(id_produit) REFERENCES Produit(id_produit)
+);
