@@ -1,21 +1,11 @@
-select categorieClient,sum(total_ttc_Cde) from commande, client where commande.id_client=client.id_client group by categorieClient;
-
-SELECT dateCommandeFournisseur, refProduit, nomProduit, quantite_cde_four, nomFournisseur FROM produit,fournisseur WHERE produit.id_fournisseur=fournisseur.id_fournisseur  AND dateCommandeFournisseur like '2021%' ORDER BY nomProduit;
 
 DELIMITER |
 CREATE PROCEDURE delai_moyen ()
 BEGIN
-	DECLARE commande date;
-    DECLARE facturation date;
-    DECLARE delai int;
-    SELECT dateCommande INTO commande from ligne_commande, facture where commande.id_commande=facture.id_commande;
-    SELECT dateFacture INTO facturation from ligne_commande, facture where commande.id_commande=facture.id_commande;
-    datediff(commande, facturation);
+	drop view if exists date_commande_facture;
+	create view date_commande_facture as select dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande where etat='Facturée' group by numeroFacture;
+	select avg(datediff(dateFacture, dateCommande)) from date_commande_facture;
 END | 
 DELIMITER ;
 
-select dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande;
-create view date_commande_facture as select numeroFacture, dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande group by numeroFacture;
-
-select numeroFacture,etat, dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande where etat='Facturée' group by numeroFacture;
-select count(etat) from commande where etat='Facturée';
+Résultat : 16,75

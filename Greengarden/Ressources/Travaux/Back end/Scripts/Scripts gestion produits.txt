@@ -1,5 +1,0 @@
-Ajout d'un produit
-INSERT INTO `Produit` (`refProduit`,`commandeFournisseur`,`dateCommandeFournisseur`,`prixAchat`,`quantite_cde_four`,`nomProduit`,`categorieProduit`,`souscategorieProduit`,`descriptionProduit`,`photo`,`stock`,`id_fournisseur`)
-VALUES
-(7050,390,"2022/03/14",12,13,"nouveauProduit","Animalerie","Reptiles","blablablablablabla","http://",13, 2);
-

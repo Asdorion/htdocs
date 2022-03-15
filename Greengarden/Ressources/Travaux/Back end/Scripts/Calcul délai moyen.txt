@@ -1,0 +1,11 @@
+
+DELIMITER |
+CREATE PROCEDURE delai_moyen ()
+BEGIN
+	drop view if exists date_commande_facture;
+        create view date_commande_facture as select numeroFacture, dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande where etat='Facturée' group by numeroFacture;
+	select avg(datediff(dateFacture, dateCommande)) from date_commande_facture;
+END |
+DELIMITER ;
+
+Résultat : 26,25

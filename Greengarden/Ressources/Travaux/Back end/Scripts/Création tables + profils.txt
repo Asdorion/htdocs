@@ -11,7 +11,7 @@ CREATE TABLE Fournisseur(
    adresseFournisseur VARCHAR(100) NOT NULL,
    cpFournisseur INT NOT NULL,
    villeFournisseur VARCHAR(50) NOT NULL,
-   PRIMARY KEY(id_fournisseur)
+   PRIMARY KEY(id_fournisseur) on delete cascade
 );
 
 CREATE TABLE Produit(
@@ -50,7 +50,7 @@ CREATE TABLE Client(
    cpFacturation INT NOT NULL,
    villeFacturation VARCHAR(50) NOT NULL,
    modePaiement VARCHAR(3) NOT NULL,
-   coefficient DECIMAL(2,2),
+   coefficient VARCHAR (5),
    id_commercial INT NOT NULL,
    PRIMARY KEY(id_client),
    UNIQUE(refClient),
@@ -108,3 +108,17 @@ CREATE TABLE Ligne_commande(
    FOREIGN KEY(id_commande) REFERENCES Commande(id_commande) on delete cascade,
    FOREIGN KEY(id_produit) REFERENCES Produit(id_produit) on delete cascade
 );
+
+CREATE USER 'visiteur'@'localhost' identified by 'azerty:123';
+GRANT SELECT on greengarden.produit to visiteur@localhost;
+
+CREATE user 'client'@'localhost' identified by 'qsdfgh:456';
+grant SELECT, insert, update on greengarden.produit to 'client'@'localhost'; 
+grant SELECT, insert, update on greengarden.commande to 'client'@'localhost'; 
+grant SELECT, insert, update on greengarden.client to 'client'@'localhost';
+
+CREATE user 'gestion'@'localhost' identified by 'wxcvbn:789';
+GRANT select, insert, update on greengarden.* to 'gestion'@'localhost';
+
+CREATE user 'administrateur'@'localhost' identified by 'poiuyt:7410';
+GRANT all on greengarden to administrateur@localhost;

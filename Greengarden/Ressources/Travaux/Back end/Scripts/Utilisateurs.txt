@@ -1,0 +1,21 @@
+Visiteur
+CREATE USER 'visiteur'@'localhost' identified by 'azerty:123';
+GRANT SELECT on greengarden.produit to visiteur@localhost;
+
+
+Client
+CREATE user 'client'@'localhost' identified by 'qsdfgh:456';
+grant SELECT, insert, update on greengarden.produit to 'client'@'localhost'; 
+grant SELECT, insert, update on greengarden.commande to 'client'@'localhost'; 
+grant SELECT, insert, update on greengarden.client to 'client'@'localhost'; 
+
+
+
+Gestion
+CREATE user 'gestion'@'localhost' identified by 'wxcvbn:789';
+GRANT select, insert, update on greengarden.* to 'gestion'@'localhost';
+
+
+Administrateur
+CREATE user 'administrateur'@'localhost' identified by 'poiuyt:7410';
+GRANT all on greengarden to administrateur@localhost;
