@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.18-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.22-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: greengarden
 -- ------------------------------------------------------
--- Server version	10.4.18-MariaDB
+-- Server version	10.4.22-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,14 +37,14 @@ CREATE TABLE `client` (
   `adresseFacturation` varchar(100) NOT NULL,
   `cpFacturation` int(11) NOT NULL,
   `villeFacturation` varchar(50) NOT NULL,
-  `modePaiement` varchar(1) NOT NULL,
-  `coefficient` decimal(2,2) NOT NULL,
+  `modePaiement` varchar(3) NOT NULL,
+  `coefficient` varchar(5) DEFAULT NULL,
   `id_commercial` int(11) NOT NULL,
   PRIMARY KEY (`id_client`),
   UNIQUE KEY `refClient` (`refClient`),
   KEY `id_commercial` (`id_commercial`),
-  CONSTRAINT `client_ibfk_1` FOREIGN KEY (`id_commercial`) REFERENCES `commercial` (`id_commercial`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `client_ibfk_1` FOREIGN KEY (`id_commercial`) REFERENCES `commercial` (`id_commercial`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,100,'Professionel','Mrs','Marsh','Gillian','et.arcu@protonmail.ca','07 08 35 74 28','72 Nulla Avenue',64827,'Nanterre','72 Nulla Avenue',64827,'Nanterre','',0.99,5),(2,101,'Particulier','Mr.','Patrick','Chester','orci.in.consequat@hotmail.net','03 69 20 39 13','6 Elit, Avenue',33741,'Reims','6 Elit, Avenue',33741,'Reims','',0.99,1),(3,102,'Particulier','Mrs','Navarro','Gabriel','a.facilisis.non@yahoo.ca','03 35 18 94 37','P.O. Box 201, 429 Ut, Av.',78350,'Bastia','243-4326 Sit Avenue',13691,'Châlons-en-Champagne','',0.99,1),(4,103,'Professionel','Mrs','Gross','Erin','vel@aol.couk','03 40 65 52 88','17 Urna. Ave',1846,'Hérouville-Saint-Clair','17 Urna. Ave',1846,'Hérouville-Saint-Clair','',0.99,4),(5,104,'Particulier','Mrs','Gomez','Wendy','nunc.ullamcorper@hotmail.couk','07 47 52 27 31','314-4006 Sem Avenue',22540,'Poitiers','P.O. Box 906, 7053 Cras Av.',11550,'Laon','',0.99,3),(6,105,'Particulier','Mr.','Clarke','Felicia','mauris@hotmail.ca','02 34 60 23 41','Ap #838-9409 Sed St.',86426,'Bègles','Ap #369-7261 Eu, Road',12143,'Compiègne','',0.99,4),(7,106,'Particulier','Mrs','Gentry','Gretchen','mauris@google.org','05 45 92 91 16','733-8837 Facilisis. Rd.',30816,'Saint-Louis','785-248 Cras Av.',25577,'Ajaccio','',0.99,1),(8,107,'Professionel','Mr.','Forbes','Sebastian','feugiat.metus@icloud.com','08 14 79 97 88','28 Sem Rd.',91617,'Montauban','39 Placerat, Rd.',73485,'Épernay','',0.99,5),(9,108,'Professionel','Mrs','Gould','Malcolm','egestas.nunc@protonmail.ca','03 46 46 01 33','92 Ipsum Street',81256,'Saint-Louis','92 Ipsum Street',81256,'Saint-Louis','',0.99,3),(10,109,'Professionel','Mrs','Rasmussen','Elton','phasellus.fermentum@icloud.couk','06 22 87 98 78','9 Sagittis Rd.',47882,'Moulins','9 Sagittis Rd.',47882,'Moulins','',0.99,2);
+INSERT INTO `client` VALUES (1,100,'Professionel','Mrs','Marsh','Gillian','et.arcu@protonmail.ca','07 08 35 74 28','72 Nulla Avenue',64827,'Nanterre','72 Nulla Avenue',64827,'Nanterre','Dif','1.30',5),(2,101,'Particulier','Mr.','Patrick','Chester','orci.in.consequat@hotmail.net','03 69 20 39 13','6 Elit, Avenue',33741,'Reims','6 Elit, Avenue',33741,'Reims','Cde','1.50',1),(3,102,'Particulier','Mrs','Navarro','Gabriel','a.facilisis.non@yahoo.ca','03 35 18 94 37','P.O. Box 201, 429 Ut, Av.',78350,'Bastia','243-4326 Sit Avenue',13691,'Châlons-en-Champagne','Cde','1.50',1),(4,103,'Professionel','Mrs','Gross','Erin','vel@aol.couk','03 40 65 52 88','17 Urna. Ave',1846,'Hérouville-Saint-Clair','17 Urna. Ave',1846,'Hérouville-Saint-Clair','Dif','1.30',4),(5,104,'Particulier','Mrs','Gomez','Wendy','nunc.ullamcorper@hotmail.couk','07 47 52 27 31','314-4006 Sem Avenue',22540,'Poitiers','P.O. Box 906, 7053 Cras Av.',11550,'Laon','Cde','1.50',3),(6,105,'Particulier','Mr.','Clarke','Felicia','mauris@hotmail.ca','02 34 60 23 41','Ap #838-9409 Sed St.',86426,'Bègles','Ap #369-7261 Eu, Road',12143,'Compiègne','Cde','1.50',4),(7,106,'Particulier','Mrs','Gentry','Gretchen','mauris@google.org','05 45 92 91 16','733-8837 Facilisis. Rd.',30816,'Saint-Louis','785-248 Cras Av.',25577,'Ajaccio','Cde','1.50',1),(8,107,'Professionel','Mr.','Forbes','Sebastian','feugiat.metus@icloud.com','08 14 79 97 88','28 Sem Rd.',91617,'Montauban','39 Placerat, Rd.',73485,'Épernay','Dif','1.30',5),(9,108,'Professionel','Mrs','Gould','Malcolm','egestas.nunc@protonmail.ca','03 46 46 01 33','92 Ipsum Street',81256,'Saint-Louis','92 Ipsum Street',81256,'Saint-Louis','Dif','1.30',3),(10,109,'Professionel','Mrs','Rasmussen','Elton','phasellus.fermentum@icloud.couk','06 22 87 98 78','9 Sagittis Rd.',47882,'Moulins','9 Sagittis Rd.',47882,'Moulins','Dif','1.30',2);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,9 +81,9 @@ CREATE TABLE `commande` (
   UNIQUE KEY `numeroCommande` (`numeroCommande`),
   KEY `id_client` (`id_client`),
   KEY `id_commercial` (`id_commercial`),
-  CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`),
-  CONSTRAINT `commande_ibfk_2` FOREIGN KEY (`id_commercial`) REFERENCES `commercial` (`id_commercial`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`) ON DELETE CASCADE,
+  CONSTRAINT `commande_ibfk_2` FOREIGN KEY (`id_commercial`) REFERENCES `commercial` (`id_commercial`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +108,7 @@ CREATE TABLE `commercial` (
   `nomCommercial` varchar(50) NOT NULL,
   `prenomCommercial` varchar(50) NOT NULL,
   PRIMARY KEY (`id_commercial`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,8 +152,8 @@ CREATE TABLE `facture` (
   PRIMARY KEY (`id_facture`),
   UNIQUE KEY `id_commande` (`id_commande`),
   UNIQUE KEY `numeroFacture` (`numeroFacture`),
-  CONSTRAINT `facture_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `facture_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `facture` (
 
 LOCK TABLES `facture` WRITE;
 /*!40000 ALTER TABLE `facture` DISABLE KEYS */;
-INSERT INTO `facture` VALUES (1,3070,'2021-05-02',2,19),(2,3071,'2020-12-28',2,11),(3,3072,'2020-05-04',2,1),(4,3073,'2021-12-03',1,2),(5,3074,'2021-01-11',0,17),(6,3075,'2021-05-29',3,14),(7,3076,'2021-02-09',4,4),(8,3077,'2020-10-30',2,5),(9,3078,'2021-09-15',2,16),(10,3079,'2020-03-11',5,3),(11,3080,'2020-10-19',5,8),(12,3081,'2020-09-30',1,21),(13,3082,'2021-08-31',1,20);
+INSERT INTO `facture` VALUES (1,3070,'2021-05-02',2,19),(2,3071,'2021-09-28',2,16),(3,3072,'2020-05-04',2,9),(4,3073,'2021-12-03',1,2),(5,3074,'2021-01-11',0,25),(6,3075,'2021-05-29',3,10),(7,3076,'2021-02-09',4,4),(8,3077,'2020-11-25',2,5),(9,3078,'2020-03-16',2,6),(10,3079,'2020-09-30',5,21),(11,3080,'2020-10-19',5,8),(12,3081,'2021-06-02',1,1),(13,3082,'2021-08-30',1,20);
 /*!40000 ALTER TABLE `facture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +180,7 @@ CREATE TABLE `fournisseur` (
   `cpFournisseur` int(11) NOT NULL,
   `villeFournisseur` varchar(50) NOT NULL,
   PRIMARY KEY (`id_fournisseur`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,9 +207,9 @@ CREATE TABLE `ligne_commande` (
   `quantite` int(11) NOT NULL,
   PRIMARY KEY (`id_commande`,`id_produit`),
   KEY `id_produit` (`id_produit`),
-  CONSTRAINT `ligne_commande_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`),
-  CONSTRAINT `ligne_commande_ibfk_2` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id_produit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `ligne_commande_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`) ON DELETE CASCADE,
+  CONSTRAINT `ligne_commande_ibfk_2` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id_produit`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,8 +238,8 @@ CREATE TABLE `livraison` (
   PRIMARY KEY (`id_livraison`),
   UNIQUE KEY `numeroLivraison` (`numeroLivraison`),
   KEY `id_commande` (`id_commande`),
-  CONSTRAINT `livraison_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `livraison_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,8 +277,8 @@ CREATE TABLE `produit` (
   UNIQUE KEY `refProduit` (`refProduit`),
   UNIQUE KEY `commandeFournisseur` (`commandeFournisseur`),
   KEY `id_fournisseur` (`id_fournisseur`),
-  CONSTRAINT `produit_ibfk_1` FOREIGN KEY (`id_fournisseur`) REFERENCES `fournisseur` (`id_fournisseur`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `produit_ibfk_1` FOREIGN KEY (`id_fournisseur`) REFERENCES `fournisseur` (`id_fournisseur`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -336,7 +336,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delai_moyen`()
 BEGIN
 	drop view if exists date_commande_facture;
-    create view date_commande_facture as select numeroFacture, dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande where etat='Facturée' group by numeroFacture;
+        create view date_commande_facture as select numeroFacture, dateCommande, dateFacture from ligne_commande join commande on ligne_commande.id_commande=commande.id_commande join facture on commande.id_commande=facture.id_commande where etat='Facturée' group by numeroFacture;
 	select avg(datediff(dateFacture, dateCommande)) from date_commande_facture;
 END ;;
 DELIMITER ;
@@ -392,4 +392,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-15 13:46:11
+-- Dump completed on 2022-03-15 18:49:42

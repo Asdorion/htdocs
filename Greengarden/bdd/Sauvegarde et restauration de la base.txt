@@ -1,0 +1,6 @@
+Sauvegarde de la base
+mysqldump -u root -R greengarden > htdocs/Greengarden/bdd/greengardensave.sql
+
+
+Restauration
+mysql -u root greengarden < htdocs/Greengarden/bdd/greengardensave.sql
