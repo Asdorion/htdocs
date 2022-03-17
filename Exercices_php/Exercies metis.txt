@@ -1,0 +1,47 @@
+Exercice 2
+
+<?php
+    date_default_timezone_set('Europe/Paris');
+    // $date = date("d.F.y");
+    setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']); 
+    $date = strftime('%d %B %Y');
+    $heure = strftime('%H:%M');
+    // $heure = $today = date("H:i");
+        echo "<p>En ce $date, sur le serveur localhost, il est $heure</p>";
+    // echo phpinfo();
+    ?>
+    <h3>Variable HTTP serveur ($_SERVER)</h3>
+    <table border="1">
+        <?php foreach ($_SERVER as $item=>$valeur) { ?>
+            <tr>
+            <td><?php echo $item;?></td>
+            <td><?php echo $valeur;?></td>
+            </tr>
+        <?php } ?>
+    </table>
+?>
+
+Exercice 3
+
+loginctrl.php
+<?php
+session_start();
+$_SESSION['userName'] = $_POST['nom'];
+header('location:loginsuite.php');
+?>
+
+loginsuite.php
+<?php
+session_start();
+if (!empty($_SESSION['userName'])) { ?>
+    <h1>Le menu du jour pour vous, <?php echo $_SESSION['userName'] ?>...</h1>
+    <ul>
+        <li><a href="">Sommaire</a></li>
+        <li>Et aussi...</li>
+        <li>Et encore...</li>
+        <li>Et pour finir...</li>
+    </ul>
+<?php } else  { ?>
+    <h1>Erreur login: vous n'avez pas droit d'accès au site</h1>
+    <a href="">Retour à la page d'acceuil</a>
+<?php } ?>
