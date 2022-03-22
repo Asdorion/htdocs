@@ -22,14 +22,14 @@ Exercice 2
 ?>
 
 Exercice 3
-
+---
 loginctrl.php
 <?php
 session_start();
 $_SESSION['userName'] = $_POST['nom'];
 header('location:loginsuite.php');
 ?>
-
+---
 loginsuite.php
 <?php
 session_start();
