@@ -1,0 +1,67 @@
+<?php
+interface Animal {
+    public function seDeplacer (Bestiole $bestiole);
+}
+
+class Courir implements Animal {
+    public function seDeplacer (Bestiole $bestiole) {
+        return $bestiole->getNom().' a '. $bestiole->getPattes().' pattes et cours';
+    }
+}
+
+class Marcher implements Animal {
+    public function seDeplacer (Bestiole $bestiole) {
+    return $bestiole->getNom().' a '. $bestiole->getPattes().' pattes et marche';
+    }
+}
+
+class Ramper implements Animal {
+    public function seDeplacer (Bestiole $bestiole) {
+    return $bestiole->getNom().' a '. $bestiole->getPattes().' pattes et rampe';
+    }
+}
+
+class Nager implements Animal {
+    public function seDeplacer (Bestiole $bestiole) {
+    return $bestiole->getNom().' a '. $bestiole->getPattes().' pattes et nage';
+    }
+}
+
+
+class Voler implements Animal {
+    public function seDeplacer (Bestiole $bestiole) {
+    return $bestiole->getNom().' a '. $bestiole->getPattes().' pattes et vol';
+    }
+}
+
+
+
+
+class Bestiole {
+    private $nom;
+    private $Pattes;
+    
+    public function __construct($nom, $Pattes){
+        $this->nom = $nom;
+        $this->Pattes = $Pattes;
+    }
+    
+    public function getNom () {
+        return $this->nom;
+    }
+    
+    public function getPattes() {
+        return $this->Pattes;
+    }
+    
+    public function seDeplacer(Animal $animal) {
+        return $animal->seDeplacer($this);
+    }
+}
+
+
+
+
+$pouet = new Bestiole('Canard', '2');
+$mouvement = new Courir;
+echo $pouet->seDeplacer($mouvement);
